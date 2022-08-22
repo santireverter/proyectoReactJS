@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Title from './components/Title/title';
+<link rel="stylesheet" href="./style/estilo.css" />
 
 const App = () => {
     return (
