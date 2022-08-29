@@ -1,9 +1,10 @@
-import Li from "../Li";
+import { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import CartWidget from "../CartWidget"
 
 
 const Navbar = () => {
+
     return (
         <nav style={{display: 'flex',justifyContent:'center', flexDirection: 'column', margin: '40px', }}>
             <h2>Ebano y Marfil</h2>
@@ -11,7 +12,7 @@ const Navbar = () => {
                 <a href=""><ListGroup.Item>Zapatos</ListGroup.Item></a>
                 <a href=""><ListGroup.Item>Ropa</ListGroup.Item></a>
                 <a href=""><ListGroup.Item>Accesorios</ListGroup.Item></a>
-                <a href=""><CartWidget></CartWidget></a>
+                <a href="" style={{color: 'black', textDecoration: 'none'}}><CartWidget></CartWidget><span id='carrito'>0</span></a>
             </ListGroup>
         </nav>
     )
