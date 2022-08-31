@@ -16,11 +16,6 @@ const ItemCount = ({initial, stock, onAdd}) => {
         }
     }
 
-    // const agregarCantidadCarrito = (cantidad) =>{
-    //     let cantidadElem = document.getElementById('carrito');
-    //     cantidadElem.innerHTML = cantidad;
-    // }
-
     return (
         <div style = {{display: 'flex', flexDirection: 'column'}}>
             <div style = {{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
