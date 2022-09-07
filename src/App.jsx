@@ -1,7 +1,8 @@
 import logo from '../src/components/Logo/Enzo.png';
 import './App.css';
 import Navbar from './components/Navbar';
-import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/Containers/ItemDetailContainer';
+import ItemListContainer from './components/Containers/ItemListContainer';
 <link rel="stylesheet" href="./style/estilo.css" />
 
 const App = () => {
@@ -11,7 +12,8 @@ const App = () => {
             <Navbar/>
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <ItemListContainer />
+                {/* <ItemListContainer /> */}
+                <ItemDetailContainer />
             </header>
         </div>
     );

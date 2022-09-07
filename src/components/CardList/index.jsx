@@ -22,7 +22,7 @@ const CardList = () =>{
         <div style={{display: 'flex', flexDirection: 'row', wrap: 'nowrap'}}>
             <ul style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                 {productos.map((producto, index) => {
-                    return <CardItem producto={producto} />
+                    return <CardItem producto={producto} key={producto.id}/>
                 })}
             </ul>
         </div>
