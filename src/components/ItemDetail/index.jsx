@@ -1,4 +1,12 @@
+import ItemCount from "../itemCount";
+
 const ItemDetail = ({detalle}) => {
+
+    const agregarCantidadCarrito = (cantidad) => {
+        let cantidadElem = document.getElementById('carrito');
+        cantidadElem.innerHTML = cantidad;
+    }
+
     return (
         <div key={detalle.id} style={{ border: '1px solid', color: 'white', display: 'flex', flexFlow: 'column', height: '600px', width: '400px', margin: '20px', alignItems: 'center' }}>
             <h3>{detalle.title}</h3>
@@ -10,6 +18,7 @@ const ItemDetail = ({detalle}) => {
                 <li>medidor de pasos y pulso</li>
                 <li>diversos temas para personalizar</li>
             </ul>
+            <ItemCount initial={1} stock={detalle.available_quantity} onAdd={agregarCantidadCarrito}/>
         </div>
     )
 }

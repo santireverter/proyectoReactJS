@@ -24,12 +24,6 @@ const ItemDetailContainer = () => {
             <div>
                 <ItemDetail detalle={detalles} />
             </div>
-
-        // <div>
-        //     {detalles.map((detalle, index) => {
-        //         return <ItemDetail detalle={detalle} key={detalle.id}/>
-        //     })}
-        // </div>
     )
 }
 
