@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from 'react-router-dom';
 import CartWidget from "../CartWidget"
 
 
@@ -7,11 +7,11 @@ const Navbar = () => {
 
     return (
         <nav style={{display: 'flex',justifyContent:'center', flexDirection: 'column', margin: '40px', }}>
-            <h2>Ebano y Marfil</h2>
+            <Link to='/'><h2>Ebano y Marfil</h2></Link>
             <ListGroup horizontal style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
-                <a href=""><ListGroup.Item>Zapatos</ListGroup.Item></a>
-                <a href=""><ListGroup.Item>Ropa</ListGroup.Item></a>
-                <a href=""><ListGroup.Item>Accesorios</ListGroup.Item></a>
+                <Link to='/zapatos'><ListGroup.Item>Zapatos</ListGroup.Item></Link>
+                <Link to='/remeras'><ListGroup.Item>Remeras</ListGroup.Item></Link>
+                <Link to='/anillos'><ListGroup.Item>Accesorios</ListGroup.Item></Link>
                 <a href="" style={{color: 'black', textDecoration: 'none'}}><CartWidget></CartWidget><span id='carrito'>0</span></a>
             </ListGroup>
         </nav>

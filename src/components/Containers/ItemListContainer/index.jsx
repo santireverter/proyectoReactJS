@@ -1,19 +1,26 @@
+import { useParams } from "react-router-dom";
 import CardList from "../../CardList";
 
 
 const ItemListContainer = () => {
 
+
+        const {productoId}  = useParams();
+        // const busquedaProducto = () => {
+        // productoId = document.getElementById('busquedaProducto');
+        // }
+
     return (
         <div>
-            <h1>Bienvenido a Ebano y Marfil</h1>
-            <h2>Aqui podras ver proximamente todos nuestros Productos</h2>
-            <div>
-                <CardList />
-            </div>
+            <h3>Inserte nombre del producto que desea</h3>
+            <input type="text" placeholder="Que desea Buscar?" id="busquedaProducto" />
+            <button >buscar</button>
+            <CardList tipoDeProducto={productoId}/>
         </div>
         )
 }
 
+//onClick={busquedaProducto()}
 
 
 export default ItemListContainer;

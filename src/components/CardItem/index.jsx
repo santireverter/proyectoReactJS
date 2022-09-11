@@ -1,6 +1,7 @@
+import { NavLink } from "react-router-dom";
 import ItemCount from "../itemCount";
 
-const CardItem = ({producto}) => {
+const CardItem = ({producto, tipoDeProducto}) => {
 
     const agregarCantidadCarrito = (cantidad) => {
         let cantidadElem = document.getElementById('carrito');
@@ -8,8 +9,8 @@ const CardItem = ({producto}) => {
     }
 
     return (
-        <div style={{ border: '1px solid', color: 'white', display: 'flex', flexFlow: 'column', height: '600px', width: '400px', margin: '20px', alignItems: 'center' }}>
-            <h3>{producto.title}</h3>
+        <div style={{ border: '1px solid', color: '#282c34', display: 'flex', flexFlow: 'column', height: '600px', width: '400px', margin: '20px', alignItems: 'center' }}>
+            <NavLink to={`/${tipoDeProducto}/${producto.id}`}><h3>{producto.title}</h3></NavLink>
             <img src={producto.thumbnail} alt='foto producto' style={{ height: '150px', width: '150px' }} />
             <h6>{producto.id}</h6>
             <h4>$ {producto.price}</h4>
