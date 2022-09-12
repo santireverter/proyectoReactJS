@@ -6,23 +6,27 @@ const ItemDetailContainer = () => {
 
     const {productoId} = useParams();
     const {productoDetails} = useParams();
-
+    console.log(productoDetails);
     const [detalles, setDetalle] = useState([]);
 
     const traerDetalleProducto = async () => {
         try{
-            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${productoId}&sort=sortId=${productoDetails}`);
+            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${productoId}`);
             const data = await response.json();
-            setDetalle(data.results[0]);
+            for (let i = 0; i <= 50; i++) {
+                if ((data.results[i].id === productoDetails)){
+                setDetalle(data.results[i]);
+                }
+            }
         } catch(err){
             console.log(err);
         }
     }
     useEffect(() => {
         traerDetalleProducto();
-    }, [])
+    },[])
 
-    console.log(detalles);
+console.log(detalles);
 
     return (
             <div>

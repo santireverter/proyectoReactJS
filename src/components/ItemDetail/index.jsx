@@ -1,11 +1,12 @@
 import ItemCount from "../itemCount";
 
-const ItemDetail = ({detalle}) => {
+const ItemDetail = ({ detalle }) => {
 
     const agregarCantidadCarrito = (cantidad) => {
         let cantidadElem = document.getElementById('carrito');
         cantidadElem.innerHTML = cantidad;
     }
+    
 
     return (
         <div key={detalle.id} style={{ border: '1px solid', color: '#282c34', display: 'flex', flexFlow: 'column', height: '600px', width: '400px', margin: '20px', alignItems: 'center' }}>
