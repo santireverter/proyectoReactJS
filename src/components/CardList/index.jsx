@@ -1,5 +1,7 @@
 import CardItem from "../CardItem";
 import { useEffect, useState } from "react";
+import '../../style/estilo.css'
+
 
 const CardList = ({tipoDeProducto}) =>{
 
@@ -19,8 +21,8 @@ const CardList = ({tipoDeProducto}) =>{
     },)
 
     return(
-        <div style={{display: 'flex', flexDirection: 'row', wrap: 'nowrap'}}>
-            <ul style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+        <div className="divCardList">
+            <ul className="ulCardList">
                 {productos.map((producto, index) => {
                     return <CardItem producto={producto} tipoDeProducto={tipoDeProducto} key={producto.id}/>
                 })}

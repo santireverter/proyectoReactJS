@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../../style/estilo.css'
 
 const ItemCount = ({initial, stock, onAdd}) => {
 
@@ -17,14 +17,14 @@ const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     return (
-        <div style = {{display: 'flex', flexDirection: 'column'}}>
-            <div style = {{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
-                <button id="agregarItem" style = {{height: '50px', width: '50px'}} onClick = {itemSuma}>+</button>
+        <div className="contenedorContador">
+            <div className="contenedorBotones">
+                <button id="agregarItem" className="botonesContador" onClick = {itemSuma}>+</button>
                 <div id="cantidadItem">{contador}</div>
-                <button id="restarItem" style = {{height: '50px', width: '50px'}} onClick = {itemResta}>-</button>
+                <button id="restarItem" className="botonesContador" onClick = {itemResta}>-</button>
             </div>
             <div>
-                <button style={{ border: 'solid' }} onClick = {() => onAdd(contador)}>Agregar al carrito</button>
+                <button className="botonCarrito" onClick = {() => onAdd(contador)}>Agregar al carrito</button>
             </div>
         </div>
     )

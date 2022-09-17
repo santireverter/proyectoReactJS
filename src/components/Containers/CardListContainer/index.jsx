@@ -2,25 +2,21 @@ import { useParams } from "react-router-dom";
 import CardList from "../../CardList";
 
 
-const ItemListContainer = () => {
+const CardListContainer = () => {
 
 
-        const {productoId}  = useParams();
-        // const busquedaProducto = () => {
-        // productoId = document.getElementById('busquedaProducto');
-        // }
+        const {categoriaId}  = useParams();
 
     return (
         <div>
             <h3>Inserte nombre del producto que desea</h3>
             <input type="text" placeholder="Que desea Buscar?" id="busquedaProducto" />
             <button >buscar</button>
-            <CardList tipoDeProducto={productoId}/>
+            <CardList tipoDeProducto={categoriaId}/>
         </div>
         )
 }
 
-//onClick={busquedaProducto()}
 
 
-export default ItemListContainer;
+export default CardListContainer;

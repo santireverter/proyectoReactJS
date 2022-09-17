@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import ItemCount from "../itemCount";
+import '../../style/estilo.css'
 
 const CardItem = ({producto, tipoDeProducto}) => {
 
@@ -9,9 +10,9 @@ const CardItem = ({producto, tipoDeProducto}) => {
     }
 
     return (
-        <div style={{ border: '1px solid', color: '#282c34', display: 'flex', flexFlow: 'column', height: '600px', width: '400px', margin: '20px', alignItems: 'center' }}>
+        <div className="divCard">
             <NavLink to={`/${tipoDeProducto}/${producto.id}`}><h3>{producto.title}</h3></NavLink>
-            <img src={producto.thumbnail} alt='foto producto' style={{ height: '150px', width: '150px' }} />
+            <img src={producto.thumbnail} alt='foto producto' className="imgThumbnail" />
             <h6>{producto.id}</h6>
             <h4>$ {producto.price}</h4>
             <ItemCount initial={1} stock={producto.available_quantity} onAdd={agregarCantidadCarrito} />

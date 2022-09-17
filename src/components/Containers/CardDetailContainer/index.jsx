@@ -2,16 +2,15 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../../ItemDetail";
 
-const ItemDetailContainer = () => {
+const CardDetailContainer = () => {
 
-    const {productoId} = useParams();
+    const {categoriaId} = useParams();
     const {productoDetails} = useParams();
-    console.log(productoDetails);
     const [detalles, setDetalle] = useState([]);
 
     const traerDetalleProducto = async () => {
         try{
-            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${productoId}`);
+            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${categoriaId}`);
             const data = await response.json();
             for (let i = 0; i <= 50; i++) {
                 if ((data.results[i].id === productoDetails)){
@@ -35,4 +34,4 @@ console.log(detalles);
     )
 }
 
-export default ItemDetailContainer;
+export default CardDetailContainer;

@@ -9,7 +9,7 @@ const ItemDetail = ({ detalle }) => {
     
 
     return (
-        <div key={detalle.id} style={{ border: '1px solid', color: '#282c34', display: 'flex', flexFlow: 'column', height: '600px', width: '400px', margin: '20px', alignItems: 'center' }}>
+        <div key={detalle.id} className='divDetail'>
             <h3>{detalle.title}</h3>
             <img src={detalle.thumbnail} alt="foto producto" />
             <p>Este {detalle.title} esta flama</p>

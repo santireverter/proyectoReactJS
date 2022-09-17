@@ -1,5 +1,5 @@
 const Li = ({msj}) => {
-    return( <li style={{padding: '20px', margin: '20px'}}>{msj}</li>)
+    return( <li className="liNavbar">{msj}</li>)
 }
 
 export default Li;
