@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CardListContainer from './components/Containers/CardListContainer';
 import CardDetailContainer from './components/Containers/CardDetailContainer';
+import Carrito from './components/Carrito';
 
 <link rel="stylesheet" href="./style/estilo.css" />
 
@@ -22,7 +23,8 @@ const App = () => {
             <Routes>
                 <Route path='/' element= { <CardListContainer />} />
                 <Route path='/:categoriaId' element= { <CardListContainer />} />
-                <Route path={`/:categoriaId/:productoDetails`} element= { <CardDetailContainer />} />
+                <Route path='/:categoriaId/:productoDetails' element= { <CardDetailContainer />} />
+                <Route path='/cart' element= {<Carrito />}></Route>
             </Routes>
         </BrowserRouter>
     );
