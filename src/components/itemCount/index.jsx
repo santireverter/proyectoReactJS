@@ -4,6 +4,7 @@ import '../../style/estilo.css'
 const ItemCount = ({initial, stock, onAdd}) => {
 
     const [contador, setContador] = useState(initial);
+
     const itemSuma = () => {
         if (contador >= initial && contador < stock){
         setContador(contador + 1);
@@ -25,6 +26,7 @@ const ItemCount = ({initial, stock, onAdd}) => {
             </div>
             <div>
                 <button className="botonCarrito" onClick = {() => onAdd(contador)}>Agregar al carrito</button>
+                <Link to='/cart'><button className="botonCarrito">Comprar ahora</button></Link>
             </div>
         </div>
     )
