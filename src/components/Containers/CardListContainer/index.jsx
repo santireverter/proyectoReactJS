@@ -4,11 +4,8 @@ import CardList from "../../CardList";
 
 const CardListContainer = () => {
 
-    let {categoriaId}  = useParams();
-    console.log(categoriaId);
-    if (categoriaId === undefined) {
-        categoriaId = "Zapatos";
-    }
+    const {categoriaId}  = useParams();
+
     return (
         <div>
             <h3>Inserte nombre del producto que desea</h3>

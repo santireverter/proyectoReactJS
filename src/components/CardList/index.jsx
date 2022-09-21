@@ -17,7 +17,9 @@ const CardList = ({tipoDeProducto}) =>{
         }
     }
     useEffect(() => {
+        if (tipoDeProducto != undefined){
         buscarProductos();
+        }
     },)
 
     return(
