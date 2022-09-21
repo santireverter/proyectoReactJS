@@ -1,12 +1,16 @@
+import { useState } from "react";
 import ItemCount from "../itemCount";
 
 const ItemDetail = ({ detalle }) => {
 
+    const [cantidadItem, setCantidad] = useState();
+
     const agregarCantidadCarrito = (cantidad) => {
         let cantidadElem = document.getElementById('carrito');
         cantidadElem.innerHTML = cantidad;
+        setCantidad(cantidad);
     }
-    
+
 
     return (
         <div key={detalle.id} className='divDetail'>
