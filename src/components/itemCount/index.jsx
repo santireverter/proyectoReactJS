@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 import '../../style/estilo.css'
 
-const ItemCount = ({initial, stock, onAdd}) => {
+const ItemCount = ({initial, stock, onAdd, detalle}) => {
 
     const [contador, setContador] = useState(initial);
 
@@ -18,6 +19,12 @@ const ItemCount = ({initial, stock, onAdd}) => {
         }
     }
 
+    const {carrito, agregarItemCarrito} = useContext(CartContext);
+
+    const agregarCarrito = (detalle) => {
+        agregarItemCarrito(detalle);
+    }
+
     return (
         <div className="contenedorContador">
             <div className="contenedorBotones">
@@ -27,7 +34,7 @@ const ItemCount = ({initial, stock, onAdd}) => {
             </div>
             <div>
                 <button className="botonCarrito" onClick = {() => onAdd(contador)}>Agregar al carrito</button>
-                <Link to='/cart'><button className="botonCarrito">Comprar ahora</button></Link>
+                <Link to='/cart'><button onClick={agregarCarrito(detalle)} className="botonCarrito">Comprar ahora</button></Link>
             </div>
         </div>
     )

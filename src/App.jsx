@@ -5,13 +5,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CardListContainer from './components/Containers/CardListContainer';
 import CardDetailContainer from './components/Containers/CardDetailContainer';
 import Carrito from './components/Carrito';
+import { CartProvider } from './context/CartContext';
+
 
 <link rel="stylesheet" href="./style/estilo.css" />
 
 const App = () => {
-
     return (
         <BrowserRouter>
+        <CartProvider>
             <div className="App">
                 <Navbar />
                 <header className='App-header'>
@@ -26,6 +28,7 @@ const App = () => {
                 <Route path='/:categoriaId/:productoDetails' element= { <CardDetailContainer />} />
                 <Route path='/cart' element= {<Carrito />}></Route>
             </Routes>
+            </CartProvider>
         </BrowserRouter>
     );
 }

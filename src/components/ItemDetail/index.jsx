@@ -18,12 +18,7 @@ const ItemDetail = ({ detalle }) => {
             <img src={detalle.thumbnail} alt="foto producto" />
             <p>Este {detalle.title} esta flama</p>
             <h4>$ {detalle.price}</h4>
-            <ul>
-                <li>pantalla tactil</li>
-                <li>medidor de pasos y pulso</li>
-                <li>diversos temas para personalizar</li>
-            </ul>
-            <ItemCount initial={1} stock={detalle.available_quantity} onAdd={agregarCantidadCarrito}/>
+            <ItemCount initial={1} stock={detalle.available_quantity} onAdd={agregarCantidadCarrito} detalle={detalle}/>
         </div>
     )
 }
