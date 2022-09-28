@@ -18,14 +18,13 @@ const CardDetailContainer = () => {
                 }
             }
         } catch(err){
-            console.log(err);
+            // console.log(err);
         }
     }
     useEffect(() => {
         traerDetalleProducto();
     },[])
 
-console.log(detalles);
 
     return (
             <div>

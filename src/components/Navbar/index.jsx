@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext';
 
 const Navbar = () => {
 
-    const {cantidadItems} = useContext(CartContext);
+    const {contador} = useContext(CartContext);
 
     return (
         <nav className='navbar'>
@@ -16,7 +16,7 @@ const Navbar = () => {
                 <Link className='linkNavbar' to='/zapatos'><Li msj={'Zapatos'}/></Link>
                 <Link className='linkNavbar' to='/remeras'><Li msj={'Remeras'}/></Link>
                 <Link className='linkNavbar' to='/anillos'><Li msj={'Anillos'}/></Link>
-                <a href="" className='linkCarrito'><CartWidget></CartWidget><span id='carrito'>{cantidadItems}</span></a>
+                <a href="" className='linkCarrito'><CartWidget></CartWidget><span id='carrito'>{contador}</span></a>
             </ul>
         </nav>
     )
