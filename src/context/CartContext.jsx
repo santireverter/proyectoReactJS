@@ -5,13 +5,16 @@ const CartContext = React.createContext();
 const CartProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([]); 
+    const [cantidadItems, setCantidadItems] = useState(0);
 
     const agregarItemCarrito = (item, cantidad) => {
         for (let i = 0; i < cantidad; i++) { 
             setCarrito([...carrito, item]);
         }
-        let cantidadElem = document.getElementById('carrito');
-        cantidadElem.innerHTML = cantidad;
+        console.log(cantidadItems);
+        // let cantidadElem = document.getElementById('carrito');
+        // cantidadElem.innerHTML = cantidad;
+        setCantidadItems(cantidadItems + cantidad); 
     }
 
     const quitarItemCarrito = () => {
@@ -31,7 +34,7 @@ const CartProvider = ({children}) => {
 
 
     return(
-    <CartContext.Provider value={{carrito, agregarItemCarrito, quitarItemCarrito, borrarTodo, estaEnCarrito}}>
+    <CartContext.Provider value={{carrito, cantidadItems, agregarItemCarrito, quitarItemCarrito, borrarTodo, estaEnCarrito}}>
         {children}
     </CartContext.Provider>
     )
