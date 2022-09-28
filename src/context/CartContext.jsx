@@ -18,16 +18,18 @@ const CartProvider = ({children}) => {
 
             console.log(cantidadItems);
 
-        for (let i = 0; i < cantidadItems.length; i++) {
+        setContador(contador + cantidad);
+        
+        // for (let i = 0; i < cantidadItems.length; i++) {
 
-            setContador(contador + cantidadItems[i]);
-        }
+        //     setContador(contador + cantidadItems[i]);
+        // } esto anda pero no del todo
         console.log(contador);
 
     }
 
 
-    const quitarItemCarrito = () => {
+    const quitarItemCarrito = (item) => {
         let encontrar = carrito.find(item => item === item.id)
         let elementoAEliminar = carrito.findIndex(encontrar)
         setCarrito(carrito.splice(elementoAEliminar, 1))

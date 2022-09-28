@@ -2,6 +2,7 @@ import ItemCount from "../itemCount";
 
 const ItemDetail = ({ detalle }) => {
 
+    console.log(detalle);
     return (
         <div key={detalle.id} className='divDetail'>
             <h3>{detalle.title}</h3>
