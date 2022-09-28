@@ -5,12 +5,12 @@ const ItemCarrito = ({item, cantidad, index}) => {
 
     const {quitarItemCarrito} = useContext(CartContext);
     const [eliminar, setEliminar] = useState(true);
-    
+
     const buttonHandler = (item) => {
         setEliminar(false);
-        quitarItemCarrito(item)
+        // quitarItemCarrito(item);
+        console.log(eliminar);
     }
-
 
     return <>
         {eliminar ? 

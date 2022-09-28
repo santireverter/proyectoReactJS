@@ -7,27 +7,13 @@ const CartProvider = ({children}) => {
     const [carrito, setCarrito] = useState([]); 
     const [cantidadItems, setCantidadItems] = useState([]);
     const [contador, setContador] = useState(0);
+    const [corroborarCarrito, setCorroborarCarrito] = useState(true);
 
     const agregarItemCarrito = (item, cantidad) => {
         setCarrito([...carrito, item]);
-        console.log(carrito);
-        // setCantidadItems(cantidadItems + cantidad); esto anda pero es peor que lo que estoy probando
-
-
         setCantidadItems([...cantidadItems, cantidad]);
-
-            console.log(cantidadItems);
-
         setContador(contador + cantidad);
-        
-        // for (let i = 0; i < cantidadItems.length; i++) {
-
-        //     setContador(contador + cantidadItems[i]);
-        // } esto anda pero no del todo
-        console.log(contador);
-
     }
-
 
     const quitarItemCarrito = (item) => {
         let encontrar = carrito.find(item => item === item.id)
@@ -36,7 +22,9 @@ const CartProvider = ({children}) => {
     }
 
     const borrarTodo = () => {
-        setCarrito([])
+        setCarrito([]);
+        setCorroborarCarrito(true);
+        setContador(0);
     }
 
     const estaEnCarrito = () => {
@@ -46,7 +34,7 @@ const CartProvider = ({children}) => {
 
 
     return(
-    <CartContext.Provider value={{carrito, cantidadItems, contador, agregarItemCarrito, quitarItemCarrito, borrarTodo, estaEnCarrito}}>
+    <CartContext.Provider value={{carrito, cantidadItems, contador, corroborarCarrito, setCorroborarCarrito, agregarItemCarrito, quitarItemCarrito, borrarTodo, estaEnCarrito}}>
         {children}
     </CartContext.Provider>
     )

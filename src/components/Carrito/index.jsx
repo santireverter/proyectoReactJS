@@ -6,8 +6,7 @@ import ItemCarrito from "../ItemCarrito";
 
 const Carrito = () => {
 
-    const {carrito, cantidadItems} = useContext(CartContext);
-    const [corroborarCarrito, setCorroborarCarrito] = useState(true);
+    const {carrito, cantidadItems, borrarTodo, corroborarCarrito, setCorroborarCarrito} = useContext(CartContext);
     console.log(carrito);
 
     useEffect(() => {
@@ -19,12 +18,15 @@ const Carrito = () => {
 
     return(
         <div>
-            <ul>
-                {carrito.map((carrito, index) => {
-                    return (<ItemCarrito item={carrito} cantidad={cantidadItems} key={carrito.id} index={index}/>
-                    )
-                })}
-            </ul>
+            <button onClick={() => borrarTodo()}>Eliminar todos los Items del Carrito</button>
+            {carrito.length === 0 ? '' :
+                <ul>
+                    {carrito.map((carrito, index) => {
+                        return (<ItemCarrito item={carrito} cantidad={cantidadItems} key={carrito.id} index={index} />
+                        )
+                    })}
+                </ul>
+            }
             {corroborarCarrito ? 
             <NavLink to='/'><button>Volver a Comprar</button></NavLink> : <button>Terminar mi Compra</button>}
         </div>
