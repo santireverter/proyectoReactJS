@@ -6,9 +6,12 @@ const CartProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([]); 
 
-    const agregarItemCarrito = ({item}) => {
-        setCarrito(...carrito, {item});
-        
+    const agregarItemCarrito = (item, cantidad) => {
+        for (let i = 0; i < cantidad; i++) { 
+            setCarrito([...carrito, item]);
+        }
+        let cantidadElem = document.getElementById('carrito');
+        cantidadElem.innerHTML = cantidad;
     }
 
     const quitarItemCarrito = () => {
