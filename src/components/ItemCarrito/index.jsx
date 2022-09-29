@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -5,6 +6,7 @@ const ItemCarrito = ({item, cantidad, index}) => {
 
     const {quitarItemCarrito} = useContext(CartContext);
     const [eliminar, setEliminar] = useState(true);
+
 
     const buttonHandler = (item, cantidad) => {
         setEliminar(false);

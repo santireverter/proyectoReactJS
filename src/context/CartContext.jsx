@@ -20,7 +20,6 @@ const CartProvider = ({children}) => {
         let elementoAEliminar = carrito.findIndex( elemento => elemento === encontrar)
         setCarrito(carrito.splice(elementoAEliminar, 1))
         setContador(contador - cantidad)
-        console.log(carrito);
     }
 
     const borrarTodo = () => {
