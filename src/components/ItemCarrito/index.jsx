@@ -6,10 +6,9 @@ const ItemCarrito = ({item, cantidad, index}) => {
     const {quitarItemCarrito} = useContext(CartContext);
     const [eliminar, setEliminar] = useState(true);
 
-    const buttonHandler = (item) => {
+    const buttonHandler = (item, cantidad) => {
         setEliminar(false);
-        // quitarItemCarrito(item);
-        console.log(eliminar);
+        quitarItemCarrito(item, cantidad);
     }
 
     return <>
@@ -20,7 +19,7 @@ const ItemCarrito = ({item, cantidad, index}) => {
             <h3>$ {item.price}</h3>
             <h3>Cantidad: {cantidad[index]}</h3>
             <h4>total= ${item.price * cantidad[index]}</h4>
-            <button onClick={() => buttonHandler(item)}>X</button>
+            <button onClick={() => buttonHandler(item.id, cantidad[index])}>X</button>
         </div> : 
         <div>
             <h3>Elemento Eliminado</h3>

@@ -7,7 +7,6 @@ import ItemCarrito from "../ItemCarrito";
 const Carrito = () => {
 
     const {carrito, cantidadItems, borrarTodo, corroborarCarrito, setCorroborarCarrito} = useContext(CartContext);
-    console.log(carrito);
 
     useEffect(() => {
         if (carrito.length !== 0){

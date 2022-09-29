@@ -15,10 +15,12 @@ const CartProvider = ({children}) => {
         setContador(contador + cantidad);
     }
 
-    const quitarItemCarrito = (item) => {
-        let encontrar = carrito.find(item => item === item.id)
-        let elementoAEliminar = carrito.findIndex(encontrar)
+    const quitarItemCarrito = (item, cantidad) => {
+        let encontrar = carrito.find(producto => producto.id === item);
+        let elementoAEliminar = carrito.findIndex( elemento => elemento === encontrar)
         setCarrito(carrito.splice(elementoAEliminar, 1))
+        setContador(contador - cantidad)
+        console.log(carrito);
     }
 
     const borrarTodo = () => {
