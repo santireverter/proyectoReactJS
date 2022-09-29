@@ -1,20 +1,20 @@
-import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const ItemCarrito = ({item, cantidad, index}) => {
 
     const {quitarItemCarrito} = useContext(CartContext);
-    const [eliminar, setEliminar] = useState(true);
+    const [eliminarElemento, setEliminarElemento] = useState(true);
 
 
     const buttonHandler = (item, cantidad) => {
-        setEliminar(false);
+        setEliminarElemento(false);
         quitarItemCarrito(item, cantidad);
+        console.log(eliminarElemento);
     }
 
     return <>
-        {eliminar ? 
+        {eliminarElemento ? 
         <div>
             <h3>{item.title}</h3>
             <img src={item.thumbnail} alt="foto item" />

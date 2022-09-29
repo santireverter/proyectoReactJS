@@ -16,11 +16,10 @@ const App = () => {
         <CartProvider>
             <div className="App">
                 <Navbar />
-                {/* <header className='App-header'>
+                <header className='App-header'>
                     <img src={logo} className="App-logo" alt="logo" />
                     <h1>Bienvenido a Ebano y Marfil</h1>
-                    <h2>Aqui podras ver proximamente todos nuestros Productos</h2>
-                </header> */}
+                </header>
             </div>
             <Routes>
                 <Route path='/' element= { <CardListContainer />} />

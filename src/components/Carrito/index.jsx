@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
@@ -14,18 +14,17 @@ const Carrito = () => {
         }
     },[])
 
+    console.log(carrito)
 
     return(
         <div>
             <button onClick={() => borrarTodo()}>Eliminar todos los Items del Carrito</button>
-            {carrito.length === 0 ? '' :
                 <ul>
                     {carrito.map((carrito, index) => {
                         return (<ItemCarrito item={carrito} cantidad={cantidadItems} key={carrito.id} index={index} />
                         )
                     })}
                 </ul>
-            }
             {corroborarCarrito ? 
             <NavLink to='/'><button>Volver a Comprar</button></NavLink> : <button>Terminar mi Compra</button>}
         </div>
