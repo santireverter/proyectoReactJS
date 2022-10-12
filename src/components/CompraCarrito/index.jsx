@@ -5,45 +5,48 @@ import {CartContext} from "../../context/CartContext";
 
 const CompraCarrito = () => {
 
-    const {carrito, cantidadItems} = useContext(CartContext);
+    const {carrito, cantidadItems, borrarTodo} = useContext(CartContext);
     const [precioFinal, setPrecioFinal] = useState(0);
 
     const [form, setForm] = useState({
         comprador:{name: '', phone: '', email: ''},
         items:[],
+        date: '',
         total: 0
     });
 
-    const calcularTotal = (array) => {
-        // return array.reduce((total, actual) => {
-        //     return total + actual;
-        // }, 0);
+    const calcularTotal = () => {
+        let costoFinal = 0;
         for (let i = 0; i < carrito.length; i++) {
-            setPrecioFinal(carrito[i].price * cantidadItems[i])
-            console.log(i);
+            costoFinal += carrito[i].price * cantidadItems[i];
         }
+        setPrecioFinal(costoFinal);
     }
 
     const [id, setId] = useState();
+
     const changeHandler = (event) => {
         let userName = document.getElementById('name').value
         let phoneNumber = document.getElementById('phone').value
         let userEmail = document.getElementById('email').value
+        let fechaHoy = Date();
+        console.log(fechaHoy);
         calcularTotal();
-        console.log(precioFinal);
         const newform = {...form, comprador:{name: userName, phone: phoneNumber, email: userEmail},
                                 items: carrito,
-                                total: precioFinal};
+                                total: precioFinal,
+                                date: fechaHoy};
         setForm(newform);
     }
+
     const submitHandler = (event) => {
         event.preventDefault();
+        borrarTodo();
         const db = getFirestore()
         const compraCarritoCollection = collection(db, 'compraCarrito');
         addDoc(compraCarritoCollection, form).then((snapshot) => setId(snapshot.id))
     }
 
-    
     return (
         <div>
             {typeof id !== 'undefined' ? (
