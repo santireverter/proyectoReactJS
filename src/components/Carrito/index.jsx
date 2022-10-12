@@ -26,7 +26,7 @@ const Carrito = () => {
                     })}
                 </ul>
             {corroborarCarrito ? 
-            <NavLink to='/'><button>Volver a Comprar</button></NavLink> : <button>Terminar mi Compra</button>}
+            <NavLink to='/'><button>Volver a Comprar</button></NavLink> : <NavLink to='/carritoCheckout'><button>Terminar mi Compra</button></NavLink>}
         </div>
     )
 }

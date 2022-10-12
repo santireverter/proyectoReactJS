@@ -38,10 +38,10 @@ const CardDetailContainer = () => {
             }));
             setDetalle(docs);
             console.log(detalles);
-            for (let i = 0; i <= detalles.length; i++) {
-                console.log(detalles.id);
-                if (detalles[i].id === productoDetails){
-                    setDetalle(detalles[i]);
+            for (let i = 0; i <= docs.length; i++) {
+                console.log(docs.id);
+                if (docs[i].id === productoDetails){
+                    setDetalle(docs[i]);
                 }
             }
         });

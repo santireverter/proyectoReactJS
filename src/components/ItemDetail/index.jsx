@@ -9,7 +9,7 @@ const ItemDetail = ({ detalle }) => {
             <img src={detalle.thumbnail} alt="foto producto" />
             <p>Este {detalle.title} esta flama</p>
             <h4>$ {detalle.price}</h4>
-            <ItemCount initial={1} stock={detalle.available_quantity} detalle={detalle}/>
+            <ItemCount initial={1} stock={detalle.stock} detalle={detalle}/>
         </div>
     )
 }

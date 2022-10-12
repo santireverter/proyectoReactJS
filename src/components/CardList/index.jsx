@@ -1,13 +1,11 @@
 import CardItem from "../CardItem";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import '../../style/estilo.css'
 import { getFirestore, collection, getDocs, query, where} from 'firebase/firestore'
-
 
 const CardList = ({tipoDeProducto}) =>{
 
     const [productos, setProductos] = useState([]);
-    const [categoria, setCategoria] = useState('zapatos');
 
     // const buscarProductos = async () => {
     //     try{
@@ -25,38 +23,27 @@ const CardList = ({tipoDeProducto}) =>{
     // },)
 
     useEffect(() => {
-        if (categoria !== undefined){
+        if (tipoDeProducto !== undefined){
             traerProductosFirestore();
         }
-    },[categoria]);
-
-    const selectChangeHandler = (ev) => {
-        setCategoria(ev.target.value);
-    }
+    },[tipoDeProducto]);
 
     const traerProductosFirestore = () => {
         const db = getFirestore();
         const items = collection(db, 'items')
-        const q = query(items, where("category", "==", categoria))
+        const q = query(items, where("category", "==", tipoDeProducto))
         getDocs(q).then((snapshot) => {
             const docs = snapshot.docs.map((doc) => 
             ({
                 id: doc.id,
                 ...doc.data(),
             }));
-            console.log(docs)
-            setProductos(docs);
-            console.log(productos);
+            setProductos(docs);;
         });
     }
 
     return(
         <div className="divCardList">
-            <select name="" id="" onChange={selectChangeHandler}>
-                <option value="zapatos">Zapatos</option>
-                <option value="remeras">Remeras</option>
-                <option value="accesorios">Accesorios</option>
-            </select>
             <ul className="ulCardList">
                 {productos.map((producto, index) => {
                     return <CardItem producto={producto} tipoDeProducto={producto.category} key={producto.id}/>

@@ -61,7 +61,7 @@
 }
 .divCardList{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
 }
 .ulCardList{
@@ -80,4 +80,15 @@
     width: 400px;
     margin: 20px;
     align-items: center;
+}
+.selectorElementos{
+    width: 700px;
+    height: 50px;
+    border-radius: 5px;
+}
+.buscadorItems{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }

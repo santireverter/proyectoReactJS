@@ -19,7 +19,9 @@ const CartProvider = ({children}) => {
         let encontrar = carrito.find(producto => producto.id === item);
         let elementoAEliminar = carrito.findIndex( elemento => elemento === encontrar);
         carrito.splice(elementoAEliminar, 1);
+        cantidadItems.splice(elementoAEliminar, 1);
         setCarrito(carrito);
+        setCantidadItems(cantidadItems);
         setContador(contador - cantidad);
     }
 
