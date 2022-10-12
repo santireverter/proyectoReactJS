@@ -27,6 +27,7 @@ const CartProvider = ({children}) => {
 
     const borrarTodo = () => {
         setCarrito([]);
+        setCantidadItems([]);
         setCorroborarCarrito(true);
         setContador(0);
     }
