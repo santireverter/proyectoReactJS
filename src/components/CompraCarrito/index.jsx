@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 
 const CompraCarrito = () => {
 
-    const {carrito, cantidadItems, borrarTodo} = useContext(CartContext);
-    const [precioFinal, setPrecioFinal] = useState(0);
+    const {carrito, borrarTodo, precioFinal, calcularTotal} = useContext(CartContext);
 
     const [form, setForm] = useState({
         comprador:{name: '', phone: '', email: ''},
@@ -16,13 +15,13 @@ const CompraCarrito = () => {
         total: 0
     });
 
-    const calcularTotal = () => {
-        let costoFinal = 0;
-        for (let i = 0; i < carrito.length; i++) {
-            costoFinal += carrito[i].price * cantidadItems[i];
-        }
-        setPrecioFinal(costoFinal);
-    }
+    // const calcularTotal = () => {
+    //     let costoFinal = 0;
+    //     for (let i = 0; i < carrito.length; i++) {
+    //         costoFinal += carrito[i].price * cantidadItems[i];
+    //     }
+    //     setPrecioFinal(costoFinal);
+    // }
 
     const [id, setId] = useState();
 

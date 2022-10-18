@@ -262,3 +262,8 @@ span{
     height: 35px;
     border-radius: 5px;
 }
+.divPrecioFinal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

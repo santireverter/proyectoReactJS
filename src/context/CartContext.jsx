@@ -8,6 +8,7 @@ const CartProvider = ({children}) => {
     const [cantidadItems, setCantidadItems] = useState([]);
     const [contador, setContador] = useState(0);
     const [corroborarCarrito, setCorroborarCarrito] = useState(true);
+    const [precioFinal, setPrecioFinal] = useState(0);
 
     const agregarItemCarrito = (item, cantidad) => {
         setCarrito([...carrito, item]);
@@ -35,9 +36,17 @@ const CartProvider = ({children}) => {
         setContador(0);
     }
 
+    const calcularTotal = () => {
+        let costoFinal = 0;
+        for (let i = 0; i < carrito.length; i++) {
+            costoFinal += carrito[i].price * cantidadItems[i];
+        }
+        setPrecioFinal(costoFinal);
+    }
+
 
     return(
-    <CartContext.Provider value={{carrito, cantidadItems, contador, corroborarCarrito, setCorroborarCarrito, agregarItemCarrito, quitarItemCarrito, borrarTodo}}>
+    <CartContext.Provider value={{carrito, cantidadItems, contador, corroborarCarrito, precioFinal, setCorroborarCarrito, agregarItemCarrito, quitarItemCarrito, borrarTodo, setPrecioFinal, calcularTotal}}>
         {children}
     </CartContext.Provider>
     )
