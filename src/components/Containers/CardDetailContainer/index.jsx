@@ -9,19 +9,6 @@ const CardDetailContainer = () => {
     const {productoDetails} = useParams();
     const [detalles, setDetalle] = useState([]);
 
-    // const traerDetalleProducto = async () => {
-    //     try{
-    //         const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${categoriaId}`);
-    //         const data = await response.json();
-    //         for (let i = 0; i <= 50; i++) {
-    //             if ((data.results[i].id === productoDetails)){
-    //             setDetalle(data.results[i]);
-    //             }
-    //         }
-    //     } catch(err){
-    //         // console.log(err);
-    //     }
-    // }
     useEffect(() => {
         traerProductosFirestore();
     },[])
@@ -37,9 +24,7 @@ const CardDetailContainer = () => {
                 ...doc.data(),
             }));
             setDetalle(docs);
-            console.log(detalles);
             for (let i = 0; i <= docs.length; i++) {
-                console.log(docs.id);
                 if (docs[i].id === productoDetails){
                     setDetalle(docs[i]);
                 }
@@ -49,7 +34,7 @@ const CardDetailContainer = () => {
 
 
     return (
-            <div>
+            <div className="divDetailContainer">
                 <ItemDetail detalle={detalles} />
             </div>
     )

@@ -17,12 +17,15 @@ const CartProvider = ({children}) => {
 
     const quitarItemCarrito = (item, cantidad) => {
         let encontrar = carrito.find(producto => producto.id === item);
-        let elementoAEliminar = carrito.findIndex( elemento => elemento === encontrar);
+        let elementoAEliminar = carrito.findIndex(elemento => elemento === encontrar);
         carrito.splice(elementoAEliminar, 1);
         cantidadItems.splice(elementoAEliminar, 1);
         setCarrito(carrito);
         setCantidadItems(cantidadItems);
         setContador(contador - cantidad);
+        if (carrito.length === 0) {
+            setCorroborarCarrito(true);
+        }
     }
 
     const borrarTodo = () => {
@@ -32,14 +35,9 @@ const CartProvider = ({children}) => {
         setContador(0);
     }
 
-    const estaEnCarrito = () => {
-        let elementoEnCarrito = carrito.find(item => item === item.id)
-        let estaElItem = elementoEnCarrito !== undefined ? true : false;
-    }
-
 
     return(
-    <CartContext.Provider value={{carrito, cantidadItems, contador, corroborarCarrito, setCorroborarCarrito, agregarItemCarrito, quitarItemCarrito, borrarTodo, estaEnCarrito}}>
+    <CartContext.Provider value={{carrito, cantidadItems, contador, corroborarCarrito, setCorroborarCarrito, agregarItemCarrito, quitarItemCarrito, borrarTodo}}>
         {children}
     </CartContext.Provider>
     )

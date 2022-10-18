@@ -14,11 +14,9 @@ const Carrito = () => {
         }
     },[])
 
-    console.log(carrito)
-
     return(
-        <div>
-            <button onClick={() => borrarTodo()}>Eliminar todos los Items del Carrito</button>
+        <div className="carrito">
+            
                 <ul>
                     {carrito.map((carrito, index) => {
                         return (<ItemCarrito item={carrito} cantidad={cantidadItems} key={carrito.id} index={index} />
@@ -26,7 +24,12 @@ const Carrito = () => {
                     })}
                 </ul>
             {corroborarCarrito ? 
-            <NavLink to='/'><button>Volver a Comprar</button></NavLink> : <NavLink to='/carritoCheckout'><button>Terminar mi Compra</button></NavLink>}
+            <NavLink to='/'><button className="botonVolverCompra">Volver a Comprar</button></NavLink> : 
+            <div className="botonesCarrito">
+                <NavLink to='/carritoCheckout'><button>Terminar mi Compra</button></NavLink>
+                <button onClick={() => borrarTodo()}>Eliminar todos los Items del Carrito</button>
+            </div>
+            }
         </div>
     )
 }

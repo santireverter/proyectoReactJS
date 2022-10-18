@@ -11,12 +11,12 @@ const Navbar = () => {
 
     return (
         <nav className='navbar'>
-            <Link to='/'><h2>Ebano y Marfil</h2></Link>
+            <Link className='contadorCarrito' to='/'><h2>Ebano y Marfil</h2></Link>
             <ul className='listaNavbar'>
                 <Link className='linkNavbar' to='/zapatos'><Li msj={'Zapatos'}/></Link>
                 <Link className='linkNavbar' to='/remeras'><Li msj={'Remeras'}/></Link>
                 <Link className='linkNavbar' to='/accesorios'><Li msj={'Accesorios'}/></Link>
-                <NavLink to='/cart'><CartWidget></CartWidget><span id='carrito'>{contador}</span></NavLink>
+                <NavLink className='contadorCarrito' to='/cart'><CartWidget></CartWidget><span id='carrito'>{contador}</span></NavLink>
             </ul>
         </nav>
     )

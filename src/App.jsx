@@ -1,4 +1,3 @@
-import logo from '../src/components/Logo/Enzo.png';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -17,10 +16,6 @@ const App = () => {
         <CartProvider>
             <div className="App">
                 <Navbar />
-                <header className='App-header'>
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1>Bienvenido a Ebano y Marfil</h1>
-                </header>
             </div>
             <Routes>
                 <Route path='/' element= { <CardListContainer />} />

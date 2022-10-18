@@ -2,6 +2,7 @@ import { useState } from "react";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useContext } from "react";
 import {CartContext} from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CompraCarrito = () => {
 
@@ -25,40 +26,49 @@ const CompraCarrito = () => {
 
     const [id, setId] = useState();
 
-    const changeHandler = (event) => {
+    const changeHandler = () => {
         let userName = document.getElementById('name').value
         let phoneNumber = document.getElementById('phone').value
         let userEmail = document.getElementById('email').value
         let fechaHoy = Date();
-        console.log(fechaHoy);
         calcularTotal();
-        const newform = {...form, comprador:{name: userName, phone: phoneNumber, email: userEmail},
-                                items: carrito,
-                                total: precioFinal,
-                                date: fechaHoy};
+        const newform = {
+            ...form, comprador: { name: userName, phone: phoneNumber, email: userEmail },
+            items: carrito,
+            total: precioFinal,
+            date: fechaHoy
+        };
         setForm(newform);
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
-        borrarTodo();
-        const db = getFirestore()
-        const compraCarritoCollection = collection(db, 'compraCarrito');
-        addDoc(compraCarritoCollection, form).then((snapshot) => setId(snapshot.id))
+        if (carrito.length !== 0) {
+            borrarTodo();
+            const db = getFirestore()
+            const compraCarritoCollection = collection(db, 'compraCarrito');
+            addDoc(compraCarritoCollection, form).then((snapshot) => setId(snapshot.id))
+        }
+        else{
+            alert('Su carrito se encuentra vacio, no puede realizar esta compra');
+        }
     }
 
     return (
-        <div>
+        <div className="divFormularioCompra">
             {typeof id !== 'undefined' ? (
-                <p>Se ha finalizado la compra y el id de compra es {id}</p>
+                <div className="compraFinalizada">
+                    <p>Se ha finalizado la compra y el id de compra es: '{id}'</p>
+                    <Link to='/'><button>Volver a Pagina Principal</button></Link>
+                </div>
             ) : (
-                <form onSubmit={submitHandler}>
-                    <label htmlFor="name">Nombre</label>
-                    <input name='name' type="text" id="name" onChange={changeHandler}/>
-                    <label htmlFor="phone">Telefono</label>
-                    <input name="phone" type="number" id="phone" onChange={changeHandler}/>
-                    <label htmlFor="email">Email</label>
-                    <input name='email' type="email" id="email" onChange={changeHandler}/>
+                <form className="formularioCompra" onSubmit={submitHandler}>
+                    <label htmlFor="name">Ingrese nombre y apellido</label>
+                    <input name='name' type="text" id="name" onChange={changeHandler} placeholder="John Doe"/>
+                    <label htmlFor="phone">Ingrese numero de telefono</label>
+                    <input name="phone" type="number" id="phone" onChange={changeHandler} placeholder="1123456789"/>
+                    <label htmlFor="email">Ingrese su email</label>
+                    <input name='email' type="email" id="email" onChange={changeHandler} placeholder="miemail@micorreo.com"/>
                     <button type="submit">Finalizar Compra</button>
                 </form>
             )}

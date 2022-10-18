@@ -1,3 +1,19 @@
+body{
+    background-color: #282c34;
+}
+span{
+    color: white !important;
+}
+.appHeader{
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    height: 550px;
+}
 .navbar{
     display: flex;
     justify-content: center;
@@ -5,8 +21,16 @@
     margin: 40px;
 }
 .navbar h2{
-    color: black;
+    color: white;
+    font-size: 30px;
     text-decoration: none;
+}
+.navbar h2:hover{
+    color: blue;
+}
+.contadorCarrito{
+    text-decoration: none;
+    color: white;
 }
 .listaNavbar{
     display: flex;
@@ -20,34 +44,47 @@
     border-radius: 5px;
     list-style: none;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 .linkNavbar{
     text-decoration: none;
+    color: white;
 }
 .linkCarrito{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 .contenedorContador{
     display: flex;
     flex-direction: column;
 }
-.contenedorBotones{
+.contenedorBotonesContador{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 }
 .botonesContador{
     height: 50px;
     width: 50px;
+    border: rgb(0, 0, 0) solid 1px;
+    border-radius: 5px;
+}
+.contenedorBotonesCompra{
+    display: flex;
+    width: 300px;
+    margin-top: 10px;
+    justify-content: space-evenly;
 }
 .botonCarrito{
     border: solid 1px;
+    border-radius: 5px;
+    height: 50px;
+    width: 120px;
 }
 .divCard{
     border: 1px solid;
-    color: #282c34;
+    color: #ffffff;
     display: flex;
     flex-flow: column;
     height: 400px;
@@ -55,9 +92,22 @@
     margin: 20px;
     align-items: center;
 }
+.divCard h3{
+    color: white;
+    font-size: 20px;
+}
+.divCard h4{
+    font-size: 18px;
+}
+.divCard img{
+    border-radius: 5px;
+}
+.divCardLink{
+    text-decoration: none;
+}
 .imgThumbnail{
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
 }
 .divCardList{
     display: flex;
@@ -71,15 +121,27 @@
     justify-content: space-evenly;
     padding: 0px;
 }
+.divDetailContainer{
+    display: flex;
+    justify-content: center;
+}
 .divDetail{
     border: 1px solid;
-    color: #282c34;
+    color: white;
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 560px;
     width: 400px;
     margin: 20px;
     align-items: center;
+}
+.divDetail h3{
+    font-size: 25px;
+    margin-top: 15px;
+}
+.divDetail img{
+    height: 300px;
+    width: 300px;
 }
 .selectorElementos{
     width: 700px;
@@ -91,4 +153,112 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+}
+.cantidadItem{
+    color: white;
+}
+.carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.itemCarrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 1000px;
+    border: solid 1px white;
+}
+.itemCarrito img{
+    height: 300px;
+    width: 300px;
+}
+.divBotonEliminar{
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 220px;
+}
+.divBotonEliminar button{
+    width: 50px;
+    height: 50px;
+}
+.detalleItemCarrito{
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    align-items: center;
+}
+.botonesCarrito{
+    display: flex;
+    width: 600px;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+.botonesCarrito button{
+    height: 30px;
+    width: 250px;
+    margin-bottom: 35px;
+}
+.botonVolverCompra{
+    height: 30px;
+    width: 250px;
+    margin-bottom: 35px;
+}
+.divFormularioCompra{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.formularioCompra{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 1000px;
+    height: 580px;
+    color: white;
+    align-items: center;
+}
+.formularioCompra label{
+    height: 65px;
+    text-align: center;
+    font-size: 35px;
+    padding-top: 20px;
+}
+.formularioCompra input{
+    height: 40px;
+    width: 800px;
+    text-align: center;
+    font-size: 35px;
+    border-radius: 10px;
+    margin: 15px;
+}
+.formularioCompra button{
+    margin-top: 15px;
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+}
+.formularioCompra button:hover{
+    background-color:rgb(128, 128, 128);
+    color: white;
+}
+.compraFinalizada{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid 1px white;
+    border-radius: 5px;
+    padding: 30px;
+}
+.compraFinalizada button{
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
 }
