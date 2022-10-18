@@ -49,9 +49,6 @@ const CompraCarrito = () => {
             const compraCarritoCollection = collection(db, 'compraCarrito');
             addDoc(compraCarritoCollection, form).then((snapshot) => setId(snapshot.id))
         }
-        else{
-            alert('Su carrito se encuentra vacio, no puede realizar esta compra');
-        }
     }
 
     return (
